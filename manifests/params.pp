@@ -6,6 +6,9 @@
 class borgbackup::params {
   $version = '1.0.8'
   $url = "https://github.com/borgbackup/borg/releases/download/${version}/borg-linux64"
+  $borg_user = 'borg'
+  $borg_repo = '/home/borg/repo'
+  $passphrase = 'changeme'
   case $::osfamily {
     'Debian': {
       $package_name = undef

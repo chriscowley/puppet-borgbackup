@@ -12,12 +12,15 @@
 #
 class borgbackup (
   $package_name = $::borgbackup::params::package_name,
-  $url         = $::borgbackup::params::url
+  $url          = $::borgbackup::params::url
+  $borg_user    = $::borgbackup::params::borg_user
+  $borg_repo    = $::borgbackup::params::borg_repo
+  $passphrase   = $::borgbackup::params::passphrase
 ) inherits ::borgbackup::params {
 
   # validate parameters here
 
   class { '::borgbackup::install': } ->
-  class { '::borgbackup::config': } ~>
+  class { '::borgbackup::createrepo': } ~>
   Class['::borgbackup']
 }
