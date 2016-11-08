@@ -13,7 +13,7 @@ describe 'borgbackup' do
 
           it { should contain_class('borgbackup::params')}
           it { should contain_class('borgbackup::install')}
-          it { should contain_class('borgbackup::config')}
+          it { should contain_class('borgbackup::createrepo')}
         end
       end
     end
