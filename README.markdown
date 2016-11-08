@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/chriscowley/puppet-borgbackup.svg?branch=master)](https://travis-ci.org/chriscowley/puppet-borgbackup)
+
+
 #### Table of Contents
 
 1. [Overview](#overview)
