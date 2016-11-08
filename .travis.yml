@@ -4,6 +4,6 @@ cache: bundler
 rvm:
     - 2.1.0
     - 2.3.0
-script: bundle exec rake test
+script: bundle exec rake syntax
 env:
     - PUPPET_GEM_VERSION="~> 4.6.2"
