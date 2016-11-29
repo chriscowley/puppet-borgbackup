@@ -30,6 +30,6 @@ class borgbackup (
     class { '::borgbackup::createrepo': } ~>
     Class['::borgbackup']
   } else {
-    class { '::borgbackup::install'}
+    class { '::borgbackup::install': }
   }
 }
