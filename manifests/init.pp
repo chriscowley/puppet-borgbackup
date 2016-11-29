@@ -16,11 +16,20 @@ class borgbackup (
   $borg_user    = $::borgbackup::params::borg_user,
   $borg_repo    = $::borgbackup::params::borg_repo,
   $passphrase   = $::borgbackup::params::passphrase,
+  $borg_host    = $::borgbackup::params::borg_host
 ) inherits ::borgbackup::params {
 
   # validate parameters here
-
-  class { '::borgbackup::install': } ->
-  class { '::borgbackup::createrepo': } ~>
-  Class['::borgbackup']
+  if ( $borg_host in [
+    $facts['fqdn'],
+    $facts['hostname'],
+    $facts['ipaddress'],
+    $facts['ipaddress_eth0'],
+    ]) {
+    class { '::borgbackup::install': } ->
+    class { '::borgbackup::createrepo': } ~>
+    Class['::borgbackup']
+  } else {
+    class { '::borgbackup::install'}
+  }
 }

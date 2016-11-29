@@ -9,6 +9,7 @@ class borgbackup::params {
   $borg_user = 'borg'
   $borg_repo = '/home/borg/repo'
   $passphrase = 'changeme'
+  $borg_host = undef
   case $::osfamily {
     'Debian': {
       $package_name = undef
